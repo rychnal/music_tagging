@@ -14,16 +14,6 @@ def get_default_shape(dataset_path):
     return tmp_features.shape
 
 def collect_data(dataset_path):
-    '''
-    Collects data from the GTZAN dataset into a pickle. Computes a Mel-scaled
-    power spectrogram for each track.
-
-    :param dataset_path: path to the GTZAN dataset directory
-    :returns: triple (x, y, track_paths) where x is a matrix containing
-        extracted features, y is a one-hot matrix of genre labels and
-        track_paths is a dict of absolute track paths indexed by row indices in
-        the x and y matrices
-    '''
     default_shape = get_default_shape(dataset_path)
     x = np.zeros((TRACK_COUNT,) + default_shape, dtype=np.float32)
     y = np.zeros((TRACK_COUNT, len(GENRES)), dtype=np.float32)
