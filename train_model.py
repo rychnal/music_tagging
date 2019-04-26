@@ -19,6 +19,7 @@ N_MEL= 256
 INIT_CHANNEL = 1
 
 def build_model(input_shape):
+    ''' postaveni modelu po vrstvach'''
     input_layer = Input(input_shape, name='input')
     layer = input_layer
     layer = Convolution2D(filters=16, kernel_size=3, strides=1, padding='valid', data_format="channels_last", activation='relu')(layer)
@@ -55,6 +56,7 @@ def build_model(input_shape):
     return model
 
 def train_model(data, model_path):
+    '''trenovani modelu'''
     x = data['x']
     y = data['y']
 

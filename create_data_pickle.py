@@ -14,6 +14,7 @@ def get_default_shape(dataset_path):
     return tmp_features.shape
 
 def collect_data(dataset_path):
+    '''postaveni datove struktury trenovacich dat'''
     default_shape = get_default_shape(dataset_path)
     x = np.zeros((TRACK_COUNT,) + default_shape, dtype=np.float32)
     y = np.zeros((TRACK_COUNT, len(GENRES)), dtype=np.float32)
